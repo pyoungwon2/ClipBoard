@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.soldesk_paul.clipboardtest_1.ClipboardTest_1" >
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/app_name"
+        android:orderInCategory="100"
+        android:title="@string/app_name"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/hello_world"
+        android:orderInCategory="100"
+        android:title="@string/hello_world"
+        app:showAsAction="never"/>
+</menu>
