@@ -10,13 +10,25 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * Created by soldesk_paul on 2016-09-07.
+ * Created by soldesk_paul on 2016-09-08 09:08  Intent 를 이용한 값 전달.
  */
 public class Intro extends AppCompatActivity implements View.OnLongClickListener {
 
     private ClipboardManager introClipboard;
     private ClipData introClip;
     private TextView intro_textView;
+
+  /// ClipboardManager를 이용하여 값을 넘겨 받는 예제
+    /*
+    txtView.setOnLongClickListener(new OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            ClipboardManager cm = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+            cm.setPrimaryClip(ClipData.newPlainText("text", ((TextView) v).getText()));
+            return false;
+        }
+    });
+    */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,15 +39,17 @@ public class Intro extends AppCompatActivity implements View.OnLongClickListener
         intro_textView = (TextView)findViewById(R.id.intro_textView);
 
         intro_textView.setOnLongClickListener(this);
-
-
-
     }
 
     @Override
     public boolean onLongClick(View view) {
 
-        String clipText;    // 이전 TextView 본문의 Text를 담을 변수선언
+        String clipText;        // 이전 TextView 본문의 Text를 담을 변수선언
+
+
+       //introClipboard.setPrimaryClip(ClipData.newPlainText("text", ((TextView) view).getText()));  // 새로 추가한 코드 ClipBoard로 받기 위한 코드. intent 방식 아님.
+
+
 
         clipText = intro_textView.getText().toString();  // clipText에 이전TextView 객체인 intro_textView를 담음.
 
@@ -52,9 +66,9 @@ public class Intro extends AppCompatActivity implements View.OnLongClickListener
 
         Intent intent = new Intent(getApplicationContext(),ClipboardTest_1.class);
         intent.putExtra("intentVoca",clipText);
-        //intent.putExtra("intent_voca",introClipboard.toString());
+        intent.putExtra("intent_voca",introClipboard.toString());
         startActivity(intent);
-        return true;
+        return false;
     }
 
     /*@Override
